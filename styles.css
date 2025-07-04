@@ -1,0 +1,271 @@
+/* ---------- Variables ---------- */
+:root {
+    --bg: #ffffff;
+    --fg: #222;
+    --accent: #e63946;
+    --alt-bg: #f9f9f9;
+}
+
+body.dark {
+    --bg: #141414;
+    --fg: #eaeaea;
+    --accent: #f4a261;
+    --alt-bg: #1d1d1d;
+}
+
+/* ---------- Reset ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+    transition: background .4s, color .4s;
+    scroll-behavior: smooth;
+}
+
+/* ---------- Botón modo oscuro ---------- */
+#toggle-dark {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 999;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    border-radius: 50%;
+    padding: .6rem .7rem;
+    cursor: pointer;
+}
+
+    #toggle-dark:hover {
+        background: var(--accent);
+        color: var(--bg)
+    }
+
+/* ---------- Hero ---------- */
+.hero {
+    height: 90vh;
+    background: linear-gradient(135deg,#264653 0%,#2a9d8f 100%);
+    background-attachment: fixed;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-inner h1 {
+    font-family: "Playfair Display",serif;
+    font-size: 4rem;
+    margin-bottom: .5rem
+}
+
+.hero-inner p {
+    font-size: 1.2rem;
+    margin-bottom: 1.8rem
+}
+
+.btn {
+    background: var(--accent);
+    color: #fff;
+    padding: .8rem 1.6rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+    .btn:hover {
+        opacity: .85
+    }
+
+/* ---------- Navegación ---------- */
+#main-nav {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,.6);
+    border-bottom: 1px solid #ddd;
+    z-index: 888;
+    transition: background .3s;
+}
+
+body.dark #main-nav {
+    background: rgba(20,20,20,.7)
+}
+
+#main-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+#main-nav li {
+    list-style: none
+}
+
+#main-nav a {
+    display: block;
+    padding: 1rem 1.2rem;
+    color: var(--fg);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .2s;
+}
+
+    #main-nav a:hover {
+        color: var(--accent)
+    }
+
+/* ---------- Sections ---------- */
+.section {
+    padding: 4rem 6%
+}
+
+    .section h2 {
+        font-family: "Playfair Display",serif;
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .section.alt {
+        background: var(--alt-bg)
+    }
+
+/* Biography Timeline */
+.timeline {
+    border-left: 4px solid var(--accent);
+    padding-left: 1.3rem
+}
+
+.tl-item {
+    margin-bottom: 1.5rem;
+    position: relative
+}
+
+.tl-year {
+    font-weight: 700;
+    color: var(--accent);
+    margin-right: .6rem;
+}
+
+.tl-item:before {
+    content: "";
+    position: absolute;
+    left: -11px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+/* Ideas list */
+.ideas {
+    max-width: 800px;
+    margin: 0 auto
+}
+
+    .ideas li {
+        margin: .6rem 0
+    }
+
+/* Works grid */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 2rem;
+}
+
+    .works-grid article {
+        border: 1px solid #ccc;
+        padding: 1.2rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .works-grid h3 {
+        margin-bottom: .8rem
+    }
+
+    .works-grid a {
+        text-decoration: none;
+        color: #fff;
+        background: var(--accent);
+        padding: .6rem 1rem;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+/* Flex columns */
+.flex-cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+    .flex-cols div {
+        flex: 1 1 260px
+    }
+
+/* Video list */
+.video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 2rem
+}
+
+    .video-list iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+        border: none;
+        border-radius: 8px
+    }
+
+/* Links list */
+.links {
+    max-width: 720px;
+    margin: 0 auto
+}
+
+    .links li {
+        margin: .6rem 0
+    }
+
+    .links a {
+        color: var(--accent);
+        text-decoration: none
+    }
+
+        .links a:hover {
+            text-decoration: underline
+        }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: .9rem;
+    border-top: 1px solid #ddd
+}
+
+body.dark footer {
+    border-top-color: #333
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width:500px) {
+    .hero-inner h1 {
+        font-size: 2.6rem
+    }
+
+    #main-nav a {
+        padding: .8rem
+    }
+}
